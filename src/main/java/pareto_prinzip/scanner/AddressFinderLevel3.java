@@ -7,10 +7,10 @@ import java.util.concurrent.TimeUnit;
 
 public class AddressFinderLevel3 extends Thread {
     private final String addmask;
-    private final Stack<String> stack;
+    private final Stack<host> stack;
     private final int packSize;
 
-    public AddressFinderLevel3(String addmask, Stack stack, int packSize){
+    AddressFinderLevel3(String addmask, Stack<host> stack, int packSize){
         this.addmask = addmask;
         this.stack = stack;
         this.packSize = packSize;
@@ -21,7 +21,7 @@ public class AddressFinderLevel3 extends Thread {
         ExecutorService executorService = Executors.newCachedThreadPool();
 
         try{
-            for(int i = 1; i <= 255; i = i + packSize) {
+            for(int i = 1; i < 255; i = i + packSize) {
                 executorService.execute(new AddressFinderLevel4(addmask, stack, i, i + packSize + 5));
             }
             executorService.shutdown();
