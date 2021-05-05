@@ -1,22 +1,0 @@
-
-Q
-java:S3740
-"/Provide the parametrized type for this generic.(×Ä·çþÿÿÿÿ8Ö­‚É“/
-m
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(Î±¤‡8Ö­‚É“/
-L
-java:S3740"/Provide the parametrized type for this generic.(è÷òì8”ŸŠÉ“/
-L
-java:S3740"/Provide the parametrized type for this generic.(Î±¤‡8•©‹É“/
-m
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(è÷òì8Ö­‚É“/
-c
-java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8ËóžÉ“/
-r
-java:S1149
-"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(×Ä·çþÿÿÿÿ8Ö­‚É“/
-U
-java:S1854"8Remove this useless assignment to local variable "data".(è÷òì8®«©É“/
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ªÉ‰ªúÿÿÿÿ8®«©É“/
-F
-java:S1481")Remove this unused "data" local variable.(è÷òì8®«©É“/

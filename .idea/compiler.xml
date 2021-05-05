@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="paretoPrinzip" />
+        <module name="pareto_prinzip" />
       </profile>
     </annotationProcessing>
   </component>
