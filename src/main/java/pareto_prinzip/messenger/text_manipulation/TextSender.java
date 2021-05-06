@@ -18,27 +18,31 @@ public class TextSender {
 
         lines.forEach(l -> {
             int lineLength = l.toCharArray().length;
+            boolean rdyFlag = false;
+
             if(lineLength > 0) {
                 if(lineLength < 200){
-                    if(tempString.get().length() < 200)
-                    {
-                        tempString.set(cutoff.get() + " " + tempString.get());
-                        int space = 200 - tempString.get().length();
-                        int index = Math.min(space, lineLength);
-                        tempString.set(tempString.get() + " " + l.substring(0, index));
+                    while (!rdyFlag) {
+                        if (tempString.get().length() < 200) {
+                            tempString.set(cutoff.get() + " " + tempString.get());
+                            cutoff.set("");
+                            int space = 240 - tempString.get().length();
+                            int index = Math.min(space, lineLength);
+                            tempString.set(tempString.get() + " " + l.substring(0, index));
 
-                        if(index > lineLength)
-                        {
-                            cutoff.set(l.substring(index + 1));
+                            if (index < lineLength) {
+                                cutoff.set(l.substring(index));
+                            }
+                        } else {
+                            MessageSender.sendMessage(tempString.get(), ipAddress);
+                            System.out.println(java.time.LocalDateTime.now() + " Sent: " + tempString.get());
+                            try {
+                                Thread.sleep(500);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            tempString.set("");
                         }
-                    }else {
-                        MessageSender.sendMessage(tempString.get(),ipAddress);
-                        try {
-                            Thread.sleep(500);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        tempString.set("");
                     }
                 }
             }
