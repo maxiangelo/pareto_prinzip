@@ -5,11 +5,11 @@ import java.util.Stack;
 
 public class AddressFinderLevel4 implements Runnable{
     private final String addmask;
-    private final Stack<host> stack;
+    private final Stack<Host> stack;
     private final int start;
     private final int end;
 
-    AddressFinderLevel4(String addmask, Stack<host> stack, int start, int end){
+    AddressFinderLevel4(String addmask, Stack<Host> stack, int start, int end){
         this.addmask = addmask;
         this.stack = stack;
         this.start = start;
@@ -25,9 +25,13 @@ public class AddressFinderLevel4 implements Runnable{
                 {
                     String host=addmask + "." + i;
                     if (InetAddress.getByName(host).isReachable(timeout)){
-                        stack.push(new host(
-                                InetAddress.getByName(host).getHostAddress(),
-                                InetAddress.getByName(host).getHostName()
+
+                        final String ip = InetAddress.getByName(host).getHostAddress();
+
+                        stack.push(new Host(
+                                        ip,
+                                        InetAddress.getByName(host).getHostName(),
+                                        Username.getUserFromIP(ip)
                                 )
                         );
                     }
