@@ -31,7 +31,7 @@ public class AddressFinderLevel4 implements Runnable{
                         stack.push(new Host(
                                         ip,
                                         InetAddress.getByName(host).getHostName(),
-                                        Username.getUserFromIP(ip)
+                                        UsernameFinder.getUserFromIP(ip)
                                 )
                         );
                     }

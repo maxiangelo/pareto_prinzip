@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Username {
+public class UsernameFinder {
 
     static public String getUserFromIP(String arg1) {
         StringBuilder user = new StringBuilder();
